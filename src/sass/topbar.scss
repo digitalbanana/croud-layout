@@ -1,0 +1,524 @@
+/*
+ * BODY
+ */
+
+
+html,body
+{
+	height: 100%;
+}
+
+body.noScroll
+{
+    overflow: hidden
+}
+
+body.blank {
+	background: transparent;
+	text-align: left;
+	margin: 0;
+	padding: 0;
+}
+
+.shuntElement
+{
+	position:absolute;
+	z-index:1;
+	left:-3000px
+}
+
+/*
+ * HEADING
+ */
+#header {
+		vertical-align: middle;
+    background: #353e40;
+    height: 70px;
+    margin: 0 0 0 0;
+    padding: 0;
+    font: 13px/1.5 Helvetica, sans-serif;
+		position: relative;
+    -webkit-font-smoothing: antialiased;
+}
+
+#header.productionAus {
+    background: #48607a;
+}
+
+#logo a{
+	display: block;
+	height:100px
+}
+
+#logo {
+    background: url("/img/Croud_logo_white.svg") no-repeat scroll left top transparent;
+    background-size: 75%;
+    display: block;
+    float: left;
+    height: 50px;
+    margin-left: 10px;
+    margin-top: 5px;
+    overflow: hidden;
+    text-indent: -999px;
+    width: 100px;
+    position: absolute;
+}
+
+/*
+ * LOGGED IN HEADER BAR
+ */
+
+#loggedIn {
+	float: right;
+	text-align: right;
+	margin-right: 140px;
+	vertical-align: middle;
+	height:70px;
+	line-height: 70px;
+	color: #fff;
+}
+
+#loggedInLabel
+{
+    display:none;
+	color:#8bccba;
+	margin-right:1em;
+	vertical-align: middle;
+}
+
+#loggedIn .thumbnail
+{
+	border:none;
+	background:none;
+	height:50px;
+	width:50px;
+	vertical-align: middle;
+	line-height: 70px;
+}
+
+#loggedIn .thumbnail img,
+#loggedIn  img.thumbnail
+{
+	-webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	border-radius: 50%;
+}
+
+#loggedIn a
+{
+	text-decoration: none;
+}
+
+#loggedIn strong
+{
+	font: 24px/1.5 'Lobster', sans-serif;
+	color:#fff;
+	vertical-align:middle;
+	padding:0 20px;
+	vertical-align: middle;
+	-webkit-font-smoothing: antialiased;
+}
+
+/*
+ * LOGGED IN UTILITIES
+ */
+
+#quickJobHeader {
+    float: right;
+    width: 500px;
+    left: 120px;
+    position: absolute;
+    z-index: 10;
+    margin-top: 10px;
+    font-weight: 300;
+    font-family: Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: subpixel-antialiased;
+    font-size: 1.1em;;
+}
+
+
+#quickJobHeader .headerSelect
+{
+	width:175px;
+}
+
+
+#header_quickJobClient_chosen.chosen-container-single .chosen-single {
+	line-height: 23px !important;
+}
+
+#header_quickJobClient_chosen.chosen-container-single .chosen-single div b {
+	background: url('/css/chosen-sprite.png') no-repeat 0px 3px;
+}
+
+#quickJobHeader label
+{
+	display:none;
+}
+
+#quickJobHeader .widget, #hangoutHeader .widget {
+	overflow: visible;
+}
+
+#quickJobHeader h2.heading, #hangoutHeader h2.heading {
+	display:none;
+}
+#quickJobHeader .widgetContainerItem, #hangoutHeader .widgetContainerItem{
+	padding:0;
+}
+#quickJobHeader .displayFrame.widget ,
+#quickJobHeader .widgetContainerItem,
+#hangoutHeader .displayFrame.widget ,
+#hangoutHeader .widgetContainerItem
+{
+	background-color: transparent !important;
+}
+
+#hangoutHeader {
+    float: right;
+}
+
+#utilities {
+	background:#bfbfbf;
+	font-size:1.4em;
+	font-weight:400;
+	float: right;
+	margin-top: 14px;
+	margin-right: 30px;
+	font-size:11px;
+	line-height:20px;
+	display:inline-block;
+	padding:10px;
+}
+
+#utilities ul {
+	margin-top: 40px;
+	line-height: 1em;
+	font-size: 0.8em;
+	margin: 0;
+	list-style: none;
+	float: right;
+}
+
+#utilities i
+{
+	font-size:1.2em;
+}
+
+#utilities li {
+	display: inline;
+	margin: 0;
+	padding: 0 0 0 5px;
+}
+
+#utilities li.first {
+	padding: 0;
+}
+
+#utilities a {
+	text-decoration: none;
+}
+
+#utilities img {
+	vertical-align: middle;
+	margin-right: 2px;
+}
+
+#utilities a {
+	color: #454545;
+	font-weight: 400;
+	font-size: 1.2em;
+}
+
+#unreadCount,#notificationCount, .figure {
+	line-height: 1.2em;
+	font-size: 1.1em;
+	background: #ec5a66;
+	background: #ec5a66;
+	padding: 0 6px;
+	color: #fff;
+	margin:0 0 0 5px;
+	vertical-align: middle;
+}
+
+/*
+ * navigation
+ */
+#navigation
+{
+    padding: 20px 0 0 0;
+}
+#navigation.affix
+{
+	position:fixed;
+	top:0;
+	padding-top:20px;
+}
+#navigation.affix-top
+{
+    padding: 0	 0 0 0;
+}
+#navigation.affix-bottom
+{
+
+}
+
+#navigation {
+	overflow:hidden;
+	display: block;
+	clear: both;
+	position: absolute;
+	z-index: 10;
+	margin: 0 0 0 20px;
+	padding-top: 0px;
+}
+
+#mainNavigation * {
+	box-sizing: border-box;
+}
+
+#mainNavigation
+{
+	width: 78px;
+	background: #353e40;
+	overflow: hidden;
+	text-align: left;
+	background-repeat: no-repeat;
+	padding: 5px 0 0 0;
+}
+
+#mainNavigation ul
+{
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+
+#mainNavigation li
+{
+    width:80px;
+    margin:0;
+    padding:0;
+    display:block;
+    text-align: center;
+}
+
+#mainNavigation .active a:link,
+#mainNavigation .active a:visited,
+#mainNavigation .active a:active,
+#mainNavigation .active a:hover
+{
+color:#fff;
+}
+
+#mainNavigation a:link,
+#mainNavigation a:visited
+{
+    line-height:1em;
+
+    text-decoration: none;
+    font-size:35px;
+    color:#92858d;
+    color:#bbb;
+    display:block;
+    height:45px;
+    width:45px;
+    margin:10px auto;
+}
+#mainNavigation a:active,
+#mainNavigation a:hover
+{
+    text-decoration: none;
+    color:#87c8b6;
+}
+
+#mainNavigation a span
+{
+    display:none;
+}
+
+#navHover
+{
+    position:absolute;
+    z-index:100;
+    overflow:hidden;
+}
+
+#navHoverContent
+{
+    text-align:center;
+    width:125px;
+    font-size:1.1em;
+    line-height:1.3em;
+    padding:15px 20px 15px 30px;
+    color:#bbb;
+    background:#353e40;
+}
+#navHoverContent em
+{
+	display:none;
+    color:#dc0076;
+    font-style: normal;
+    font-weight:bold;
+}
+
+
+/*
+ *  main content
+ */
+
+#mainContent
+{
+	margin:0;
+	padding:0;
+}
+
+#dashboard #dashboardPane {
+
+}
+
+#mainContainer {
+	margin: 0;
+	background: transparent;
+}
+
+#mainBody {
+
+	border: none !important;
+	margin-left: 120px !important;
+	margin-right: 20px;
+	margin-top: 20px;
+	margin-bottom: 25px;
+	padding:0;
+	overflow: hidden;
+}
+
+#mainBody.full
+{
+	margin-left: 20px !important;
+}
+
+#mainContentFrame
+{
+	padding:15px;
+	background:#fff;
+	overflow: hidden;
+	min-height:800px;
+}
+
+.mainSidebarColumn
+{
+	margin-right:270px;
+}
+
+.rightSidebarColumn
+{
+    z-index:10;
+    width:245px;
+    position:absolute;;
+    right:20px;
+}
+
+.rightSidebarColumn .well
+{
+	margin:0;
+}
+
+.rightSidebarColumn h3
+{
+    margin-top:0;
+    margin-bottom: 10px;
+}
+.rightSidebarColumn h4
+{
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.sidebarContainer
+{
+    background:#f5f5f5;
+    margin:-30px -15px;
+}
+
+.sidebarContainerMain
+{
+    background: #fff;
+    padding:20px 15px;
+    margin-right:250px;
+    border-right:1px solid #ddd;
+}
+.sidebarContainerMargin
+{
+    width:245px;
+    position:absolute;;
+    right:20px;
+}
+
+.displayColumn
+{
+	float:left;
+	overflow:auto;
+	margin:10px;
+}
+.displayFrame.widget
+{
+	overflow:none;
+	text-align:left;
+    background-color: #fff;
+}
+
+.widgetContainerItem
+{
+	padding:15px;
+    overflow: visible
+}
+
+.widgetContainerItem.punchThrough
+{
+	overflow:visible !important;
+}
+
+.error {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.push-right
+{
+    float:right;
+}
+.push-left
+{
+    float:left;
+}
+
+.ui.button:not(.basic) {
+    border: none !important;
+}
+
+@media screen and (max-width: 600px) {
+	#loggedInLabel
+	{
+		display:none;
+	}
+}
+@media screen and (max-width: 800px) {
+	#quickJobHeader
+	{
+        display:none;
+	}
+}
+@media screen and (max-width: 440px) {
+	#loggedIn .thumbnail {
+		display:none;
+		height: 35px;
+		width: 35px;
+	}
+
+	#loggedIn strong {
+		display:none;
+		font: 20px/1.5 'Lobster', sans-serif;
+		padding: 0 10px 0 15px;
+	}
+}

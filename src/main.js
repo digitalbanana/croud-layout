@@ -7,8 +7,7 @@ import store from './store'
 
 
 import '../semantic/dist/semantic.min'
-// import '../semantic/dist/semantic.min.css'
-import './assets/croud-semantic.css'
+import '../semantic/dist/semantic.min.css'
 
 Vue.config.productionTip = false
 Vue.use(VueResource)
