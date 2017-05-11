@@ -1,0 +1,127 @@
+
+    @import './variables';
+
+body {
+  background: $warmGrey  !important;
+  height: 100%;
+}
+
+
+#login-logo {
+  background: url(/static/img/croud_logo_new.svg) no-repeat scroll center transparent;
+  background-size: 90%;
+  display: block;
+  float: none;
+  height: 150px;
+  margin: 0;
+  overflow: hidden;
+  text-indent: -999px;
+}
+
+.logo-background {
+  background: $darkGrey !important;
+}
+
+#form-container {
+  height: 125px;
+  position: relative;
+}
+
+#form-fields-container {
+  position: absolute;
+  z-index:5;
+  overflow: visible;
+  width:100%
+}
+
+#login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:100%;
+}
+
+#login-form {
+  width:350px;
+}
+
+#error-message-container {
+  position:fixed;
+  z-index:3;
+  top: 0;
+  width:100%;
+  left:0;
+  text-align:center;
+}
+
+#error-message {
+  width:540px;
+  display:block;
+  margin:20px auto 0 auto;
+
+  i {
+    margin-top: 3px;
+  }
+}
+
+.toggle-button {
+  width:80px;
+}
+.remember-me {
+  margin-bottom:20px;
+}
+.bouncer-transition {
+    display: inline-block;
+}
+.bouncer-enter {
+  animation: bouncer-in .8s;
+}
+.bouncer-leave {
+  animation: bouncer-out .4s;
+}
+
+@keyframes bouncer-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bouncer-out {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+.field-error input {
+  color: #880000 !important;
+  background-color: rgba(255,100,100,0.05) !important;
+}
+
+// @media screen and (max-width: 960px) {
+//   #login-form {
+//     display: flex;;
+//     width:100% !important;
+//     height:100% !important;
+//     flex-direction: column;
+//     .login-segment {
+//       height: 100%;
+//       overflow:auto;
+//       flex-grow: 1
+//     }
+//     .logo-background {
+//       height:200px;
+//     }
+//   }
+// }

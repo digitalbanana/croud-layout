@@ -1,0 +1,39 @@
+@import 'variables';
+
+.ui-tabs-vertical {
+  height:100%;
+  ul {
+    list-style: none;
+  }
+  .ui-tabs-panel {
+    color: $textColor;
+    margin-left:180px !important;
+    padding: 0 15px !important;
+  }
+
+  .ui-tabs-anchor {
+    color: $textColor !important;
+    &:hover, &:active {
+      background:rgba(0, 0, 0, 0.05);
+    }
+
+  }
+
+  .list-heading {
+    color: $textColor;
+    background:transparent !important;
+    border-bottom:$navBorder;
+    h4 {
+      color: $textColor;
+      background:transparent !important;
+          border-bottom:$navBorder;
+    }
+
+  }
+  li.ui-state-default {
+    background:transparent !important;
+  }
+}
+
+
+// ul.verticalTabs.ui-tabs-nav li, ul.verticalTabs.ui-tabs-nav li.ui-state-default
