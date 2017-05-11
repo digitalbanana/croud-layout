@@ -80,7 +80,7 @@ export default {
         })
 
         this.$http.get('api/user/authorised').then((response) => {
-            console.log(response)
+            response.body.data.user.data.avatar = response.body.data.user.data.avatar_url
             this.updateUser(response.body.data.user.data)
             this.updatePermissions(response.body.data.permissions.data)
             this.updateUserSwitches(response.body.data.user_switches.data)

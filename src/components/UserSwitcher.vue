@@ -151,9 +151,9 @@ export default {
 
     data() {
         return {
-            current_user: Croud.user_switcher.current_user,
+            // current_user: Croud.user_switcher.current_user,
             org_user: Croud.user_switcher.org_user,
-            root_user: Croud.user_switcher.root_user,
+            // root_user: Croud.user_switcher.root_user,
             // users: Croud.user_switcher.users,
             loading: false,
         }
@@ -161,6 +161,8 @@ export default {
 
     computed: {
         ...mapGetters({
+            current_user: 'user',
+            root_user: 'user',
             users: 'userSwitches',
         }),
 
