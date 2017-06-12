@@ -90,20 +90,20 @@
 
 <div>
     <div class="switcher">
-        <div v-if="showSwitcher" ref="userSwitcher" class="ui labeled icon top right pointing dropdown tiny positive button">
+        <div v-if="showSwitcher" ref="userSwitcher" class="ui floating labeled icon top right pointing dropdown tiny positive button">
             <i class="exchange icon"></i>
             <span class="text">Switch</span>
             <div class="menu">
-                <a class="ui button tiny logout blue" href="/logout/">logout</a>
+                <button class="ui button tiny logout blue" @click.stop="logout">logout</button>
                 <div class="header">
                     <img class="ui avatar image" :src="current_user.avatar" :data-id="current_user.id">
                     <div class="label" v-html="current_user.name"></div>
                 </div>
                 <div class="divider"></div>
-                <div v-if="users.length" class="ui icon search input">
+                <!-- <div class="ui icon input">
                     <i class="search icon"></i>
                     <input type="text" placeholder="Search users...">
-                </div>
+                </div> -->
                 <div v-if="root_user.id != current_user.id" class="item">
                     <div :data-id="root_user.id">
                         <img class="ui avatar image" :src="root_user.avatar">
@@ -133,7 +133,7 @@
                 </div>
             </div>
         </div>
-        <a v-else class="ui button positive tiny" href="/logout/">Logout</a>
+        <button v-else class="ui button positive tiny" @click="logout">Logout</button>
     </div>
 </div>
 
@@ -143,7 +143,7 @@
 
 import _ from 'lodash'
 import Vue from 'vue'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 Vue.use(require('vue-resource'))
 
@@ -194,7 +194,14 @@ export default {
     },
 
     methods: {
+        ...mapActions([
+            'updateUser',
+        ]),
 
+        logout() {
+            this.updateUser({})
+            this.$http.get('/logout')
+        },
         canDelete(user) {
             if (this.org_user) return false
 
@@ -224,6 +231,7 @@ export default {
         buildDropdown() {
             $(this.$refs.userSwitcher).dropdown({
                 fullTextSearch: true,
+                forceSelection: false,
                 action(option) {
                     this.loading = true
                     console.log('got here')
@@ -258,6 +266,7 @@ export default {
 
     mounted() {
         this.buildDropdown()
+        $(this.$refs.userSwitcher1).dropdown()
     },
 
     watch: {
