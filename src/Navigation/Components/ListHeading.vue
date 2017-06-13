@@ -8,9 +8,6 @@
 </template>
 
 <script>
-
-  import store from '../Store'
-
   export default {
       name: 'ListItem',
       data() {
@@ -29,12 +26,6 @@
           },
           toggleItem(item) {
               item.expanded = !item.expanded
-              this.$nextTick(() => {
-                  store.setNavigation(this.user, {
-                      expanded: this.expanded,
-                      list: this.items,
-                  })
-              })
           },
           activeClass(item) {
               if (!item.uri || item.uri.length < 1) return ''

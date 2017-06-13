@@ -19,7 +19,6 @@
 <script>
     import { mapGetters } from 'vuex'
 
-    import store from './Store'
     import ListItem from './Components/ListItem'
     import ListHeading from './Components/ListHeading'
 
@@ -88,12 +87,6 @@
             },
             setExpanded(value) {
                 document.getElementById('main-content').className = !value ? 'collapsed' : ''
-                this.$nextTick(() => {
-                    store.setNavigation(this.user, {
-                        expanded: this.expanded,
-                        list: this.items,
-                    })
-                })
             },
         },
 

@@ -54,9 +54,6 @@
 </template>
 
 <script>
-
-  import store from '../Store'
-
   export default {
       name: 'ListItem',
       data() {
@@ -126,10 +123,10 @@
               }
               this.item.expanded = !this.item.expanded
               this.$nextTick(() => {
-                  store.setNavigation(this.user, {
-                      expanded: this.expanded,
-                      list: this.items,
-                  })
+                //   store.setNavigation(this.user, {
+                //       expanded: this.expanded,
+                //       list: this.items,
+                //   })
               })
           },
           activeClass(item) {
