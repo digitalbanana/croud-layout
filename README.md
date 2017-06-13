@@ -1,6 +1,31 @@
 # croud-layout
 
-> A Vue.js project
+## Plugin
+Step 1: Install plugin
+```bash
+yarn add https://github.com/CroudSupport/croud-layout.git
+```
+
+Step 2: Add it to your project
+
+```js
+import CroudLayout from 'croud-layout'
+import store from './store'
+Vue.use(CroudLayout, { store })
+
+/* eslint-disable no-new */
+new Vue({
+    el: '#app',
+    template: '<croud-layout><App slot="content"/></croud-layout>',
+    components: { App },
+    store,
+})
+
+```
+
+Step 3: ????
+
+Step 4: Profit :)
 
 ## Build Setup
 
