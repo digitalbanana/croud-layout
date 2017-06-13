@@ -34,8 +34,6 @@
 import Vue from 'vue'
 import { mapGetters, mapActions } from 'vuex'
 
-import store from './Navigation/Store'
-
 import TopBar from './components/TopBar'
 import Navigation from './Navigation/App'
 import Login from './Login/App'
@@ -54,12 +52,12 @@ export default {
             }
             return arr.join(' ')
         },
-        navData() {
-            return store.getNavigation(Croud.systemSettings.user, {
-                expanded: true,
-                list: Croud.navigation.main,
-            })
-        },
+        // navData() {
+        //     return store.getNavigation(Croud.systemSettings.user, {
+        //         expanded: true,
+        //         list: Croud.navigation.main,
+        //     })
+        // },
 
         ...mapGetters(['user', 'jwt', 'loading']),
     },
@@ -97,10 +95,10 @@ export default {
     },
 
     mounted() {
-        this.$nextTick(() => {
-            this.items = this.navData.list
-            this.expanded = this.navData.expanded
-        })
+        // this.$nextTick(() => {
+        //     this.items = this.navData.list
+        //     this.expanded = this.navData.expanded
+        // })
 
         this.handleLogin()
 

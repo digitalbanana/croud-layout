@@ -152,7 +152,7 @@ export default {
     data() {
         return {
             // current_user: Croud.user_switcher.current_user,
-            org_user: Croud.user_switcher.org_user,
+            org_user: 0, // Croud.user_switcher.org_user,
             // root_user: Croud.user_switcher.root_user,
             // users: Croud.user_switcher.users,
             loading: false,

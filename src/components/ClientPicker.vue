@@ -13,7 +13,7 @@
     export default {
         data() {
             return {
-                storageKey: `quick-selector-${Croud.systemSettings.user.code}`,
+                // storageKey: `quick-selector-${Croud.systemSettings.user.code}`,
                 selected_client: null,
             }
         },
@@ -24,9 +24,9 @@
             }),
         },
 
-        mounted() {
-            this.selected_client = window.localStorage.getItem(this.storageKey)
-        },
+        // mounted() {
+        //     this.selected_client = window.localStorage.getItem(this.storageKey)
+        // },
 
         methods: {
             viewClient() {
