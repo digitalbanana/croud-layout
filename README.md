@@ -3,7 +3,7 @@
 ## Plugin
 Step 1: Install plugin
 ```bash
-yarn add https://github.com/CroudSupport/croud-layout.git
+yarn add croud-layout
 ```
 
 Step 2: Add it to your project

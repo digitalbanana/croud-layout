@@ -4,7 +4,7 @@
   "version": "1.0.1",
   "description": "A Vue.js project",
   "author": "Brock <brock.reece@croud.co.uk>",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
