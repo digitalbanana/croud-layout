@@ -20,7 +20,7 @@
 
         computed: {
             ...mapGetters({
-                clientList: 'clients',
+                clientList: 'universal/clients',
             }),
         },
 

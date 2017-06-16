@@ -1,4 +1,4 @@
-import currentUser from './store/modules/currentUser'
+import universal from './store/modules/universal'
 import croudLayout from './App'
 
 export default {

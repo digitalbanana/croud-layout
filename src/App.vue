@@ -59,15 +59,19 @@ export default {
         //     })
         // },
 
-        ...mapGetters(['user', 'jwt', 'loading']),
+        ...mapGetters({
+            user: 'universal/user',
+            jwt: 'universal/jwt',
+            loading: 'universal/loading',
+        }),
     },
 
     methods: {
-        ...mapActions([
-            'updateUser',
-            'updatePermissions',
-            'updateUserSwitches',
-        ]),
+        ...mapActions({
+            updateUser: 'universal/updateUser',
+            updatePermissions: 'universal/updatePermissions',
+            updateUserSwitches: 'universal/updateUserSwitches',
+        }),
 
         handleLogin() {
             if (!this.jwt.sub) return

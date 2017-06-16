@@ -70,4 +70,6 @@ export default {
         jwt: state => state.jwt,
         loading: state => state.loading,
     },
+
+    namespaced: true,
 }

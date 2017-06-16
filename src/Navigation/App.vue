@@ -79,7 +79,9 @@
                 ]
             },
 
-            ...mapGetters(['permissions']),
+            ...mapGetters({
+                permissions: 'universal/permissions',
+            }),
         },
         methods: {
             toggle() {

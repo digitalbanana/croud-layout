@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import currentUser from './modules/currentUser'
+import universal from './modules/universal'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
     modules: {
-        currentUser,
+        universal,
     },
     plugins: [
         /* eslint-disable no-underscore-dangle */

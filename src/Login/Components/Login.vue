@@ -243,9 +243,9 @@
         },
 
         methods: {
-            ...mapActions([
-                'updateJWT',
-            ]),
+            ...mapActions({
+                updateJWT: 'universal/updateJWT',
+            }),
 
             focusUsername() {
                 this.$refs.username.focus()

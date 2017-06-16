@@ -144,6 +144,8 @@
 import _ from 'lodash'
 import Vue from 'vue'
 import { mapGetters, mapActions } from 'vuex'
+import '../../semantic/src/definitions/modules/dropdown'
+import '../../semantic/src/definitions/modules/transition'
 
 Vue.use(require('vue-resource'))
 
@@ -161,9 +163,9 @@ export default {
 
     computed: {
         ...mapGetters({
-            current_user: 'user',
-            root_user: 'user',
-            users: 'userSwitches',
+            current_user: 'universal/user',
+            root_user: 'universal/user',
+            users: 'universal/userSwitches',
         }),
 
         canDisplayUserType() {
@@ -194,9 +196,9 @@ export default {
     },
 
     methods: {
-        ...mapActions([
-            'updateUser',
-        ]),
+        ...mapActions({
+            updateUser: 'universal/updateUser',
+        }),
 
         logout() {
             this.updateUser({})
