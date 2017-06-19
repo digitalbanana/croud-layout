@@ -1,7 +1,7 @@
 {
   "name": "croud-layout",
   "main": "src/plugin.js",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A Vue.js project",
   "author": "Brock <brock.reece@croud.co.uk>",
   "private": false,
@@ -11,7 +11,8 @@
     "build": "node build/build.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
-    "lint": "eslint --ext .js,.vue src test/unit/specs"
+    "lint": "eslint --ext .js,.vue src test/unit/specs",
+    "install": "mkdir -p ../../static/img && cp -r ./static/img/ ../../static/img/"
   },
   "dependencies": {
     "babel-preset-latest": "^6.24.1",
