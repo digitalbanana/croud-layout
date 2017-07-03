@@ -19,16 +19,14 @@ export default {
         }
     },
 
-    computed: {
-        ...mapGetters({
-            effectivePermissions: 'universal/effectivePermissions',
-            session: 'universal/user',
-        }),
-
+    computed: Object.assign({}, (0, mapGetters)({
+        effectivePermissions: 'universal/effectivePermissions',
+        session: 'universal/user',
+    }), {
         owner() {
             return this.user && this.user.code === this.session.code
         },
-    },
+    }),
 
     methods: {
         setSecurity() {

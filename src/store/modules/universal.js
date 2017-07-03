@@ -69,6 +69,10 @@ export default {
         userSwitches: state => state.userSwitches,
         jwt: state => state.jwt,
         loading: state => state.loading,
+        effectivePermissions: (state) => {
+            if (!state.permissions.global || !state.permissions.global.effective_permissions) return []
+            return state.permissions.global.effective_permissions
+        },
     },
 
     namespaced: true,
