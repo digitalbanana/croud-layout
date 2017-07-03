@@ -27,6 +27,39 @@ Step 3: ????
 
 Step 4: Profit :)
 
+## Security Mixin
+Croud-layout now includes the **Security** mixin that can make quick *CRUD* permission checks for the current user.
+
+### Basic Usage ###
+
+```js
+import Security from 'croud-layout/src/mixin/security'
+
+export default {
+    mixins: [Security],
+
+    data() {
+        return {
+            permission: {
+                read: 'my-read-permission',
+                custom: 'my-custom-permission',
+            },
+        },
+    },
+}
+```
+This will add a **security** object to your component that looks like this (if they have the correct permissions)...
+
+```js
+{
+    create: false,
+    read: true,
+    update: false,
+    delete: false,
+    custom: true,
+}
+```
+
 ## Build Setup
 
 ``` bash
