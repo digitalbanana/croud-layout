@@ -29,7 +29,7 @@
         components: {
             ListItem, ListHeading,
         },
-        props: ['user', 'depth', 'expanded'],
+        props: ['depth', 'expanded'],
         computed: {
             toggleClass() {
                 const classNames = ['arrow circle double icon']
@@ -43,6 +43,12 @@
             },
 
             items() {
+                const stashed = JSON.parse(localStorage.getItem(`main_navigation_${this.user.code}`))
+
+                if (stashed.data.list) {
+                    return stashed.data.list
+                }
+
                 return [
                     {
                         label: 'Dashboard',
@@ -81,6 +87,7 @@
 
             ...mapGetters({
                 permissions: 'universal/permissions',
+                user: 'universal/user',
             }),
         },
         methods: {

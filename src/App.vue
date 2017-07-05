@@ -13,7 +13,6 @@
             <navigation
               :expanded="expanded"
               :items="items"
-              :user="user"
               >
             </navigation>
           </div>
@@ -82,6 +81,8 @@ export default {
                 this.updateUser(response.body.data.user.data)
                 this.updatePermissions(response.body.data.permissions.data)
                 this.updateUserSwitches(response.body.data.user_switches.data)
+            }).catch(() => {
+                this.updateUser({})
             })
         },
     },
