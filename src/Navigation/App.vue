@@ -45,7 +45,7 @@
             items() {
                 const stashed = JSON.parse(localStorage.getItem(`main_navigation_${this.user.code}`))
 
-                if (stashed.data.list) {
+                if (stashed && stashed.data && stashed.data.list) {
                     return stashed.data.list
                 }
 
