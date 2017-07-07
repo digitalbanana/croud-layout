@@ -1,7 +1,7 @@
 {
   "name": "croud-layout",
   "main": "src/plugin.js",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "A Vue.js project",
   "author": "Brock <brock.reece@croud.co.uk>",
   "private": false,
