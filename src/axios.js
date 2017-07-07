@@ -10,13 +10,11 @@ export default {
             axios.defaults.paramsSerializer = params => qs.stringify(params, { arrayFormat: 'brackets' })
         }
 
-        const instance = axios.create({
-            ...options.defaults,
+        const instance = axios.create(options.defaults)
+        instance.interceptors.response.use((response) => {
+            response.body = response.data
+            return response
         })
-        instance.interceptors.response.use(response => ({
-            ...response,
-            body: response.data,
-        }))
 
         Vue.prototype.$http = instance
         Vue.http = instance

@@ -27,6 +27,26 @@ Step 3: ????
 
 Step 4: Profit :)
 
+## Axios plugin
+A drop in replacement for vue-resource
+
+### Basic usage
+
+```js
+/* Main.js */
+...
+import axios from 'croud-layout/src/axios'
+...
+
+new Vue({
+...
+    created() {
+        Vue.use(axios, { setCroudDefaults: true })
+    },
+})
+
+```
+
 ## Security Mixin
 Croud-layout now includes the **Security** mixin that can make quick *CRUD* permission checks for the current user.
 
