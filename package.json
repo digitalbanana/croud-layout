@@ -15,19 +15,13 @@
     "install": "mkdir -p ../../static/img && cp -r ./static/img/ ../../static/img/"
   },
   "dependencies": {
-    "babel-preset-latest": "^6.24.1",
-    "eslint-config-croud": "^1.0.1",
+    "axios": "^0.15.3",
     "jquery": "^3.2.1",
     "jwt-decode": "^2.2.0",
     "localforage": "^1.5.0",
     "localstorage": "git+https://github.com/CroudSupport/localstorage.git",
     "lodash": "^4.17.4",
-    "node-sass": "^4.5.2",
-    "sass-loader": "^6.0.3",
-    "vue": "^2.2.6",
-    "vue-resource": "^1.3.1",
-    "vue-semantic": "https://github.com/CroudSupport/vue-semantic.git#vue2",
-    "vuex": "^2.3.1"
+    "qs": "^6.5.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
@@ -88,7 +82,15 @@
     "webpack-bundle-analyzer": "^2.2.1",
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.18.0",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "babel-preset-latest": "^6.24.1",
+    "eslint-config-croud": "^1.0.1",
+    "node-sass": "^4.5.2",
+    "sass-loader": "^6.0.3",
+    "vue": "^2.2.6",
+    "vue-resource": "^1.3.1",
+    "vue-semantic": "https://github.com/CroudSupport/vue-semantic.git#vue2",
+    "vuex": "^2.3.1"
   },
   "engines": {
     "node": ">= 4.0.0",
