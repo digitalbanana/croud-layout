@@ -6,7 +6,7 @@
             <img class="ui small image" src='../static/img/croud_logo_new.svg' />
         </div>
     </div>
-    <login v-else-if="!user.id" @login="handleLogin"></login>
+    <login v-else-if="!user.id"></login>
     <div v-else id="main-content">
         <div id="main-navigation" class="main-navigation">
           <div class="contained">
@@ -30,7 +30,6 @@
   </div>
 </template>
 <script>
-import Vue from 'vue'
 import { mapGetters, mapActions } from 'vuex'
 
 import TopBar from './components/TopBar'
@@ -51,16 +50,11 @@ export default {
             }
             return arr.join(' ')
         },
-        // navData() {
-        //     return store.getNavigation(Croud.systemSettings.user, {
-        //         expanded: true,
-        //         list: Croud.navigation.main,
-        //     })
-        // },
 
         ...mapGetters({
             user: 'universal/user',
             jwt: 'universal/jwt',
+            root: 'universal/root',
             loading: 'universal/loading',
         }),
     },
@@ -70,20 +64,13 @@ export default {
             updateUser: 'universal/updateUser',
             updatePermissions: 'universal/updatePermissions',
             updateUserSwitches: 'universal/updateUserSwitches',
+            authenticate: 'universal/auth',
         }),
 
         handleLogin() {
             if (!this.jwt.sub) return
-            Vue.http.headers.common.Authorization = `Bearer ${localStorage.getItem('jwt')}`
 
-            this.$http.get('api/user/authorised').then((response) => {
-                response.body.data.user.data.avatar = response.body.data.user.data.avatar_url
-                this.updateUser(response.body.data.user.data)
-                this.updatePermissions(response.body.data.permissions.data)
-                this.updateUserSwitches(response.body.data.user_switches.data)
-            }).catch(() => {
-                this.updateUser({})
-            })
+            this.authenticate()
         },
     },
 
@@ -94,25 +81,8 @@ export default {
         }
     },
 
-    created() {
-        Vue.http.options.root = `//${gateway_url}`
-        Vue.http.headers.common.Authorization = `Bearer ${localStorage.getItem('jwt')}`
-    },
-
     mounted() {
-        // this.$nextTick(() => {
-        //     this.items = this.navData.list
-        //     this.expanded = this.navData.expanded
-        // })
-
         this.handleLogin()
-
-        this.$http.get('api/user/authorised').then((response) => {
-            response.body.data.user.data.avatar = response.body.data.user.data.avatar_url
-            this.updateUser(response.body.data.user.data)
-            this.updatePermissions(response.body.data.permissions.data)
-            this.updateUserSwitches(response.body.data.user_switches.data)
-        })
     },
 }
 </script>

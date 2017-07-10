@@ -167,7 +167,6 @@
 </template>
 
 <script>
-    import Vue from 'vue'
     import storage from 'localstorage'
     import { mapActions } from 'vuex'
 
@@ -318,8 +317,8 @@
                     password: this.password,
                     remember: this.remember ? 'yes' : null,
                 }
-                Vue.http.options.xhr = { withCredentials: true }
-                this.$http.post(`//${gateway_url}/login`, data).then((response) => {
+
+                this.$http.post('login', data).then((response) => {
                     storage.delete(`main_navigation_${response.data.id}`)
                     localStorage.setItem('jwt', response.data.jwt)
                     this.updateJWT()
