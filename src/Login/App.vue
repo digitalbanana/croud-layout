@@ -1,5 +1,9 @@
 <template>
-    <login v-if="active" :view.sync="view" :username.sync="username" transition="bouncer" transition-mode="out-in" @login="$emit('login')"></login>
+    <div class="login-container">
+        <transition name="bouncer">
+            <login v-if="active" @login="$emit('login')"></login>
+        </transition>
+    </div>
 </template>
 <script>
 import Login from './Components/Login'
@@ -12,8 +16,6 @@ export default {
     data() {
         return {
             active: false,
-            view: 'login',
-            username: '',
         }
     },
 
@@ -24,3 +26,16 @@ export default {
     },
 }
 </script>
+
+<style lang="scss" scoped>
+    .login-container {
+        background: #f0f0ed;
+        min-height: 100vh;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+</style>

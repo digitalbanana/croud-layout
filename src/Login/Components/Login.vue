@@ -18,17 +18,6 @@
        }
   }
 
-  #login-container {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-      align-items: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      height: 100%;
-      background: #f0f0ed;
-  }
-
   .logo-background {
       border-bottom-right-radius: 0 !important;
       border-bottom-left-radius: 0 !important;
@@ -108,43 +97,54 @@
               <div class="ui segment logo-background">
                   <div id="login-logo">Welcome to Croud Control</div>
               </div>
-              <div v-if="view == 'login'" class="ui segments login-segment"  transition="slider" transition-mode="out-in">
-              <form class="ui form" id="form-fields-container">
-                  <div class="ui segment padded">
-                      <div v-bind:class="['field', {'field-error' : errors}]">
-                        <input ref="username" type="text" name="email" placeholder="Enter your username" v-model="username" @focus="this.errors = false" @keypress.enter.prevent="focusPassword">
-                      </div>
-                      <div v-bind:class="['ui', 'action', 'input', 'fluid', {'field-error' : errors}]">
-                          <input ref="password" type="password" name="password" placeholder="Enter your password" v-model="password" @focus="this.errors = false" @keypress.enter.prevent="check">
-                          <button class="toggle-button ui button" :class="{yellow: display_password}" @click.prevent="display_password = !display_password">
-                              <span v-if="display_password">Hide</span>
-                              <span v-else>Show</span>
-                          </button>
-                      </div>
-                  </div>
-              </form>
-              <!-- <div class="ui segment padded" ></div> -->
-              <div class="ui segment center aligned padded" id="form-container">
-                  <div class="field remember-me">
-                      <div class="ui checkbox">
-                          <input type="checkbox" tabindex="0" v-model="remember">
-                          <label class="light">Remember me next time</label>
-                      </div>
-                  </div>
-                  <button v-bind:class="['ui','button', 'fluid', 'blue', {'loading': loading}]" @click="check">Sign in to Croud Control</button>
-                  <div class="ui horizontal divider">Or</div>
-                  <i title="Google" class="red inverted circular large google link icon" @click="socialAuth('google')"></i>
-                  <i title="Facebook" class="blue inverted circular large facebook link icon" @click="socialAuth('facebook')"></i>
-                  <!-- <i title="Twitter" class="blue inverted circular large twitter link icon" @click="socialAuth('twitter')"></i> -->
-                  <i title="Linkedin" class="blue inverted circular large linkedin link icon" @click="socialAuth('linkedin')"></i>
-                  <!-- <i title="Github" class="circular large github alternate link icon" @click="socialAuth('github')"></i> -->
+              <transition name="slider" mode="out-in"
+                @enter-cancelled="$options.transitions.slider.enterCancelled"
+                @leave="$options.transitions.slider.leave"
+                @leave-cancelled="$options.transitions.slider.leaveCancelled"
+                @enter="$options.transitions.slider.enter">
+                <div v-if="view == 'login'" class="ui segments login-segment">
+                    <form class="ui form" id="form-fields-container">
+                        <div class="ui segment padded">
+                            <div v-bind:class="['field', {'field-error' : errors}]">
+                                <input ref="username" type="text" name="email" placeholder="Enter your username" v-model="username" @focus="this.errors = false" @keypress.enter.prevent="focusPassword">
+                            </div>
+                            <div v-bind:class="['ui', 'action', 'input', 'fluid', {'field-error' : errors}]">
+                                <input ref="password" type="password" name="password" placeholder="Enter your password" v-model="password" @focus="this.errors = false" @keypress.enter.prevent="check">
+                                <button class="toggle-button ui button" :class="{yellow: display_password}" @click.prevent="display_password = !display_password">
+                                    <span v-if="display_password">Hide</span>
+                                    <span v-else>Show</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- <div class="ui segment padded" ></div> -->
+                    <div class="ui segment center aligned padded" id="form-container">
+                        <div class="field remember-me">
+                            <div class="ui checkbox">
+                                <input type="checkbox" tabindex="0" v-model="remember">
+                                <label class="light">Remember me next time</label>
+                            </div>
+                        </div>
+                        <button v-bind:class="['ui','button', 'fluid', 'blue', {'loading': loading}]" @click="check">Sign in to Croud Control</button>
+                        <div class="ui horizontal divider">Or</div>
+                        <i title="Google" class="red inverted circular large google link icon" @click="socialAuth('google')"></i>
+                        <i title="Facebook" class="blue inverted circular large facebook link icon" @click="socialAuth('facebook')"></i>
+                        <!-- <i title="Twitter" class="blue inverted circular large twitter link icon" @click="socialAuth('twitter')"></i> -->
+                        <i title="Linkedin" class="blue inverted circular large linkedin link icon" @click="socialAuth('linkedin')"></i>
+                        <!-- <i title="Github" class="circular large github alternate link icon" @click="socialAuth('github')"></i> -->
 
-                  <div class="ui segment basic footer">
-                    <button class="ui button mini basic" @click.prevent="view='password'">Forgot your password?</button>
+                        <div class="ui segment basic footer">
+                            <button class="ui button mini basic" @click.prevent="view='password'">Forgot your password?</button>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div v-if="view == 'password'" class="ui segments login-segment form-fields-container"  transition="slider" transition-mode="out-in">
+              </transition>
+              <transition name="slider" mode="out-in"
+                @enter-cancelled="$options.transitions.slider.enterCancelled"
+                @leave="$options.transitions.slider.leave"
+                @leave-cancelled="$options.transitions.slider.leaveCancelled"
+                @enter="$options.transitions.slider.enter">
+                <div v-if="view == 'password'" class="ui segments login-segment form-fields-container"  transition="slider" transition-mode="out-in">
                  <div class="ui segment padded">
                      <form class="ui form">
                          <p>Enter your email address and we will send you a link to reset your password</p>
@@ -161,6 +161,7 @@
                      </div>
                  </div>
              </div>
+              </transition>
           </div>
         </div>
     </div>
@@ -171,11 +172,6 @@
     import { mapActions } from 'vuex'
 
     export default {
-        props: {
-            view: {},
-            username: {},
-        },
-
         data() {
             return {
                 password: '',
@@ -187,6 +183,8 @@
                 error_message: false,
                 password_error: false,
                 remember: false,
+                view: 'login',
+                username: '',
             }
         },
 
