@@ -242,6 +242,7 @@
         methods: {
             ...mapActions({
                 updateJWT: 'universal/updateJWT',
+                updateRoot: 'universal/updateRoot',
             }),
 
             focusUsername() {
@@ -319,6 +320,8 @@
                 this.$http.post('login', data).then((response) => {
                     storage.delete(`main_navigation_${response.data.id}`)
                     localStorage.setItem('jwt', response.data.jwt)
+                    localStorage.setItem('root', response.data.jwt)
+                    this.updateRoot()
                     this.updateJWT()
                     this.$emit('login')
                     // this.$http.post('/login/auth/', {

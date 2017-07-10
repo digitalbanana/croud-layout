@@ -29,6 +29,9 @@ export default {
         UPDATE_JWT(state) {
             state.jwt = jwtDecode(localStorage.getItem('jwt'))
         },
+        UPDATE_ROOT(state) {
+            state.root = jwtDecode(localStorage.getItem('root'))
+        },
         STOP_LOADING(state) {
             state.loading = false
         },
@@ -49,6 +52,9 @@ export default {
             Vue.localForage.setItem('updateUserSwitches', state)
             context.commit('UPDATE_USER_SWITCHES', state)
         },
+        updateRoot: (context) => {
+            context.commit('UPDATE_ROOT')
+        },
         updateJWT: (context) => {
             context.commit('UPDATE_JWT')
 
@@ -67,7 +73,7 @@ export default {
             context.dispatch('updateUser', response.body.data.user.data)
             context.dispatch('updatePermissions', response.body.data.permissions.data)
 
-            if (!context.getters.root.sub || context.getters.root.sub === context.getters.jwt.sub) {
+            if (context.getters.root.sub === context.getters.jwt.sub) {
                 context.dispatch('updateUserSwitches', response.body.data.user_switches.data)
             }
         }).catch(() => {
