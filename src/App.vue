@@ -17,7 +17,7 @@
             </navigation>
           </div>
         </div>
-        <div id="main-content-container">
+        <div id="main-content-container" :class="mainClasses">
           <!-- <div v-if="title" class="headingLinks"><span slot="links"></span></div> -->
           <h1 v-if="title" v-html="title"></h1>
           <div id="main-content-body" v-bind:class="classList">
@@ -38,7 +38,13 @@ import Login from './Login/App'
 
 export default {
     components: { TopBar, Navigation, Login },
-    props: ['title', 'flush'],
+    props: {
+        title: {},
+        flush: {},
+        mainClasses: {
+            default: 'flush-body',
+        },
+    },
     computed: {
         classList() {
             const arr = []
