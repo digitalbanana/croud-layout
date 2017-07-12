@@ -17,7 +17,7 @@
             </navigation>
           </div>
         </div>
-        <div id="main-content-container" :class="mainClasses">
+        <div id="main-content-container">
           <!-- <div v-if="title" class="headingLinks"><span slot="links"></span></div> -->
           <h1 v-if="title" v-html="title"></h1>
           <div id="main-content-body" v-bind:class="classList">
@@ -40,9 +40,8 @@ export default {
     components: { TopBar, Navigation, Login },
     props: {
         title: {},
-        flush: {},
-        mainClasses: {
-            default: 'flush-body',
+        flush: {
+            default: true,
         },
     },
     computed: {
