@@ -23,14 +23,15 @@ const buildRequest = (url, action, args) => {
         switch (action.method) {
         case 'post':
         case 'put':
-            local.body = args
+            local.body = args[0]
             break
 
         default:
-            local.params = args
+            local.params = args[0]
             break
         }
     }
+
     return local
 }
 
@@ -56,7 +57,7 @@ export default {
             const axiosResource = {}
 
             Object.keys(actions).forEach((alias) => {
-                resource[alias] = (...args) => instance.request(buildRequest(urlTemplate.parse(url), actions[alias], args))
+                axiosResource[alias] = (...args) => instance.request(buildRequest(urlTemplate.parse(url), actions[alias], args))
             })
 
             return axiosResource
