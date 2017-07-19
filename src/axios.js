@@ -18,6 +18,7 @@ const buildRequest = (url, action, args) => {
     local.url = url.expand(args[0])
 
     if (args.length > 1) {
+        local.data = args[1]
         local.body = args[1]
     } else {
         switch (action.method) {
