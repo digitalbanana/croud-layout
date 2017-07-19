@@ -23,6 +23,7 @@ const buildRequest = (url, action, args) => {
         switch (action.method) {
         case 'post':
         case 'put':
+            local.data = args[0]
             local.body = args[0]
             break
 
